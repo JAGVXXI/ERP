@@ -1,0 +1,41 @@
+{
+  "name": "proyecto1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "ansi-regex": "^5.0.1",
+    "ansi-styles": "^4.3.0",
+    "chalk": "^4.1.2",
+    "cliui": "^7.0.4",
+    "color-convert": "^2.0.1",
+    "color-name": "^1.1.4",
+    "concurrently": "^7.0.0",
+    "date-fns": "^2.28.0",
+    "emoji-regex": "^8.0.0",
+    "escalade": "^3.1.1",
+    "get-caller-file": "^2.0.5",
+    "has-flag": "^4.0.0",
+    "is-fullwidth-code-point": "^3.0.0",
+    "lodash": "^4.17.21",
+    "passport-local": "^1.0.0",
+    "require-directory": "^2.1.1",
+    "rxjs": "^6.6.7",
+    "spawn-command": "^0.0.2-1",
+    "string-width": "^4.2.3",
+    "strip-ansi": "^6.0.1",
+    "supports-color": "^8.1.1",
+    "tree-kill": "^1.2.2",
+    "tslib": "^1.14.1",
+    "wrap-ansi": "^7.0.0",
+    "y18n": "^5.0.8",
+    "yargs": "^16.2.0",
+    "yargs-parser": "^20.2.9"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently \"cd ./server && npm run server\" \"cd ./client && npm run dev\""
+  },
+  "author": "",
+  "license": "ISC"
+}
