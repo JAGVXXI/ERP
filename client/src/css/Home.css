@@ -1,0 +1,50 @@
+.PHome{
+    font-size: 18px;
+    background: #24C6DC;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #514A9D, #24C6DC);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #514A9D, #24C6DC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    
+      
+}
+
+.contenedor-principal{
+    min-height: 600px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.carr{
+    min-height: 600px;
+    /*display: ;*/
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+#carouselExampleIndicators{
+    min-height: 600px;
+    /*display: ;*/
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+}
+.carousel-item{
+    min-height: 600px;
+    /*display: flex ;*/
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+h1{
+    min-height: 600px;
+    display:flex ;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}

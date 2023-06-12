@@ -1,0 +1,1 @@
+export const UserC = () => <h1>UserC</h1>
