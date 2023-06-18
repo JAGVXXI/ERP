@@ -1,0 +1,33 @@
+body{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .InsertProducts {
+    background-color: black;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white
+  }
+  
+  .container {
+    background-image: url('../Images/Logotipo.jpeg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 50%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  
+  .container img {
+    max-width: 100%;
+    height: auto;
+  }

@@ -2,6 +2,7 @@ import React from 'react'
 import '../css/Home.css'
 import Navbar from '../Components/Navbar'
 import Footer from '../Components/Footer'
+import Productos from '../Components/Productos'
 
 export const Landing = () => 
 
@@ -46,7 +47,7 @@ export const Landing = () =>
         <div className="row h-100">
     
         <div className='contenedor-principal'>
-            
+            <Productos/>
         </div>
         </div>
     </div>

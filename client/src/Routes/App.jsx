@@ -6,6 +6,7 @@ import {UserA} from '../Pages/UserA';
 import {UserB} from '../Pages/UserB';
 import {UserC} from '../Pages/UserC';
 import {Admin} from '../Pages/Admin';
+import {InsertProducts} from '../Pages/InsertProducts';
 import CompCreateUser from '../Components/createUser';
 //import {CompCreateUser} from '../Components/createUser.jsx';
 //import {Prueba} from '../Pages/Prueba';
@@ -22,6 +23,7 @@ function App() {
       <Route path='/UserB' element={<UserB/>}/>
       <Route path='/UserC' element={<UserC/>}/>
       <Route path='/Admin' element={<Admin/>}/>
+      <Route path='/InsertProducts' element={<InsertProducts/>}/>
       <Route path='/Admin/create' element={<CompCreateUser/>}/>
       <Route path='/Admin/home'/>
 
