@@ -59,7 +59,7 @@ if( 1==1){
                                 <button type="submit" className="btn btn-success" >iniciar sesion</button>
                                 
                                 <button type="reset" className="btn btn-primary">Limpiar</button>
-                                <a href="../inicio.html" className="text-light"><button type="button" class="btn btn-danger">cancelar</button></a>
+                                <a href="/" className="text-light"><button type="button" class="btn btn-danger">cancelar</button></a>
 
 
                             </form>

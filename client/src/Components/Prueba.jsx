@@ -5,7 +5,7 @@ import { useState } from "react";
 
 export default function Prueba() {
   const [data, setData] = useState();
-  const urlWithProxy = "/api";
+  const urlWithProxy = "/api/user/User/";
 
   function getDataFromServer() {
     axios

@@ -8,7 +8,7 @@ import Footer from '../Components/Footer'
 
 import '../css/Login.css';
 
-const urlWithProxy = "/api/user/";
+const urlWithProxy = "/api/user/User/";
 
 const CompCreateUser = () => {
     const [Cname, setname] = useState('')

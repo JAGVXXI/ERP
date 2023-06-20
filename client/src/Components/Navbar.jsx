@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import imagenLogo from '../Images/logo2.png';
 //import '../hojas-de-estilo/Testimonio.css';
 
 function Navbar(){
@@ -9,7 +10,7 @@ function Navbar(){
             <div className="container">
                 
                     
-            <Link to="/" className=" navbar-brand" aria-current="page" > Aqui va a ir un logo mamalon</Link>
+            <Link to="/" className=" navbar-brand" aria-current="page" ><img className='imLogo' src={imagenLogo} alt='logo equipo' width="70px" /> </Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>

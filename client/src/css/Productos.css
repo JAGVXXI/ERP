@@ -1,0 +1,48 @@
+@keyframes cambioColor {
+    0% { background: #ff7f7f; }
+    25% { background: #2e5c68; }
+    50% { background: #7f7fff; }
+    75% { background: #3d3d34; }
+    100% { background: #ff7f7f; }
+}
+
+.celdaProducto{
+    background: linear-gradient(to right, rgb(255, 255, 255), lightblue);
+    transition: transform 0.3s;
+}
+
+.celdaProducto:hover{
+    transform: scale(1.1);
+}
+
+.page-item.active .page-link {
+    background-color: rgb(16, 64, 109); /* color de fondo rojo para la página activa */
+    border-color: rgb(117, 82, 82);
+    
+  }
+
+.page-item.active .page-link:hover{
+    color: black !important;
+}
+  
+  .page-link {
+    color: rgb(0, 0, 0) !important; /* color de texto rojo para todas las páginas */
+  }
+  
+  .page-link:hover {
+    color: rgb(151, 33, 33) !important; /* color de texto verde cuando se pasa el mouse */
+  }
+  
+  .btn-primary:hover {
+    animation: cambioColor 5s linear infinite;
+  }
+
+  .celdaCategoria:hover {
+    transform: scale(1.05);
+    transition: transform 0.5s ease;
+  }
+  
+#prod{
+  color: black;
+}
+  

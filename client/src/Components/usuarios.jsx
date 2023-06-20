@@ -4,7 +4,7 @@ import { useState , useEffect } from "react";
 import { Link } from "react-router-dom";
 import { async } from "rxjs";
 
-const urlWithProxy = "/api/user/";
+const urlWithProxy = "/api/user/User/";
 
 const CompShowUser = () => {
     
@@ -28,6 +28,11 @@ const CompShowUser = () => {
         <div className="container">
             <h2>USUARIOS</h2>
             <div className="row">
+
+
+            
+
+
                 <div className="col">
                     <table className="table ">
                         <thead className="table-dark ">

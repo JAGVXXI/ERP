@@ -37,3 +37,12 @@ h2{
     text-align: center;
 
 }
+
+textarea{
+    font-family: inherit;
+    resize: none;
+}
+.error{
+    font-weight: bold;
+    color: rgb(255, 183, 0);
+}
