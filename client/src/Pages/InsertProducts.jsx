@@ -5,7 +5,7 @@ import Footer from '../Components/Footer'
 import { Link , useNavigate} from "react-router-dom";
 import { useState , useEffect } from "react";
 
-
+//Insertar ruta para Imagen (Jared)
 const urlWithProxy = "/api/user/Products/";
 
 export const InsertProducts = () => {

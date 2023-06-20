@@ -2,7 +2,7 @@ import '../css/Login.css';
 import '../css/InfProd.css';
 import Navbar from '../Components/Navbar'
 import Footer from '../Components/Footer'
-
+// Jared Diseño
 import axios from "axios";
 import { tr } from "date-fns/locale";
 import { useState , useEffect } from "react";
