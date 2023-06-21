@@ -7,6 +7,7 @@ body{
   .InsertProducts {
     background-color: black;
     /*height: 100vh;*/
+    image-resolution: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -30,4 +31,9 @@ body{
   .container img {
     max-width: 100%;
     height: auto;
+  }
+
+  .centered-label{
+    text-align: center;
+    display: block;
   }

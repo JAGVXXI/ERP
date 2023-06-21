@@ -4,7 +4,7 @@ import Pagination from "react-js-pagination";
 import { Link } from "react-router-dom";
 import { async } from "rxjs";
 import axios from "axios";
-//Revisar bien lo de la BD y hacer que funvione la barra y hacer página para los servicios e insertar servicios (Jared)
+//Revisar bien lo de la BD y hacer que funcione la barra y hacer página para los servicios e insertar servicios (Jared)
 
 const urlWithProxy = "/api/user/Products/";
 export const Productos = () => {

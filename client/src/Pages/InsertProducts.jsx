@@ -1,17 +1,17 @@
 import axios from "axios";
 import styles from "../css/InsertProducts.module.css";
-import Navbar from '../Components/Navbar'
-import Footer from '../Components/Footer'
-import { Link , useNavigate} from "react-router-dom";
-import { useState , useEffect } from "react";
+import Navbar from "../Components/Navbar";
+import Footer from "../Components/Footer";
+import { Link, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 
-//Insertar ruta para Imagen (Jared)
+//Insertar casilla para subir o cargar Imagen (Jared) e Insertar casilla para agregar el stock
 const urlWithProxy = "/api/user/Products/";
 
 export const InsertProducts = () => {
   const [form, setForm] = useState({
     id_articulo: "",
-    company:"",
+    company: "",
     nombre: "",
     descripcion: "",
     categoria: "",
@@ -30,15 +30,49 @@ export const InsertProducts = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await axios.post(urlWithProxy,{company: form.company,name: form.nombre,description: form.descripcion,category: form.categoria, price_public: form.precio_publico ,price_supplier: form.precio_distribuidor,stock: "0", linkP: " " })
 
-    const res2 =await axios.get(`http://localhost:5000/api/user/ProductID/`);
-    alert(res2.data.id);
+    //Primero, buscamos si el producto ya existe en la BD:
+    const existe = await axios.get(
+      `http://localhost:5000/api/user/Products/${form.id_articulo}`
+    );
+    if (existe.data) {
+      //Si el producto ya existe, solamente actualizamos el stock:
+      await axios.put(
+        `http://localhost:5000/api/user/Products/${existe.data.id}`,
+        {
+          stock: form.stock + existe.data.stock,
+        }
+      );
+    } else { //En caso de que el producto no exista, lo agregamos a la BD:
+      await axios.post(urlWithProxy, {
+        company: form.company,
+        name: form.nombre,
+        description: form.descripcion,
+        category: form.categoria,
+        price_public: form.precio_publico,
+        price_supplier: form.precio_distribuidor,
+        stock: form.stock,
+        linkP: " ",
+      });
 
-    await axios.put(`http://localhost:5000/api/user/Products/${res2.data.id}`,{company: form.company,name: form.nombre,description: form.descripcion,category: form.categoria, price_public: form.precio_publico ,price_supplier: form.precio_distribuidor,stock: "0", linkP: `http://localhost:5173/Admin/InfoP?prodId=${res2.data.id}` })
-    navegate('/')
+      const res2 = await axios.get(`http://localhost:5000/api/user/ProductID/`);
+      alert(res2.data.id);
 
-    //console.log(form);
+      await axios.put(
+        `http://localhost:5000/api/user/Products/${res2.data.id}`,
+        {
+          company: form.company,
+          name: form.nombre,
+          description: form.descripcion,
+          category: form.categoria,
+          price_public: form.precio_publico,
+          price_supplier: form.precio_distribuidor,
+          stock: form.stock,
+          linkP: `http://localhost:5173/Admin/InfoP?prodId=${res2.data.id}`,
+        }
+      );
+      // navegate("/");
+    }
   };
 
   const categorias = [
@@ -54,17 +88,30 @@ export const InsertProducts = () => {
     "Automotriz",
   ];
 
-  return (
+  //Almacenar el nombre de las empresas de la BD:
+  const [companies, setCompanies] = useState([]);
+  //Obtenemos los nombres de la BD:
+  useEffect(() => {
+    const getCompanies = async () => {
+      try {
+        const res = await axios.get("http://localhost:5000/api/user/Company/");
+        setCompanies(res.data);
+      } catch (error) {
+        console.error("Error al obtener las empresas", error);
+      }
+    };
+    getCompanies();
+  }, []);
 
+  return (
     <div className="insProd">
       <header>
-  
-        <Navbar/>
+        <Navbar />
       </header>
 
       <div className=" h-100 py-5 " id="conPrinIP">
         <div className={styles.InsertProducts}>
-          <div className={styles.container  }>
+          <div className={styles.container}>
             <h1 className="text-center">Insertar producto</h1>
             <form onSubmit={handleSubmit}>
               <div className="mb-3">
@@ -80,17 +127,23 @@ export const InsertProducts = () => {
               </div>
               <div className="mb-3">
                 <label className="form-label">Empresa</label>
-                <input
-                  type="text"
+                <select
                   className="form-control"
                   name="company"
                   value={form.company}
                   onChange={handleChange}
                   required
-                />
+                >
+                  <option value="">-- Elige una empresa --</option>
+                  {companies.map((company, index) => (
+                    <option key={index} value={company.name_C}>
+                      {company.name_C}
+                    </option> //Mostramos los nombres de las empresas
+                  ))}
+                </select>
               </div>
               <div className="mb-3">
-                <label className="form-label">Descripción</label>
+                <label className="form-label centered-label">Descripción</label>
                 <textarea
                   className="form-control"
                   name="descripcion"
@@ -101,7 +154,7 @@ export const InsertProducts = () => {
               </div>
               <div className="row d-flex justify-content-center">
                 <div className="col-lg-4 col-md-4 col-sm-12 d-flex justify-content-center">
-                  <div className="mb-3" style={{marginTop: "0px"}}>
+                  <div className="mb-3" style={{ marginTop: "0px" }}>
                     <label className="form-label">Categoría</label>
                     <select
                       className="form-control"
@@ -121,7 +174,7 @@ export const InsertProducts = () => {
                   </div>
                 </div>
                 <div className="col-lg-4 col-md-4 col-sm-12 d-flex justify-content-center">
-                  <div className="mb-3" style={{marginTop: "0px"}}>
+                  <div className="mb-3" style={{ marginTop: "0px" }}>
                     <label className="form-label">Precio público</label>
                     <div className="input-group" style={{ marginTop: "0px" }}>
                       <span className="input-group-text">$</span>
@@ -139,7 +192,9 @@ export const InsertProducts = () => {
                 </div>
                 <div className="col-lg-4 col-md-4 col-sm-12 d-flex justify-content-center">
                   <div className="mb-3">
-                    <label className="form-label">Precio del distribuidor</label>
+                    <label className="form-label">
+                      Precio del distribuidor
+                    </label>
                     <div className="input-group" style={{ marginTop: "0px" }}>
                       <span className="input-group-text">$</span>
                       <input
@@ -149,6 +204,23 @@ export const InsertProducts = () => {
                         name="precio_distribuidor"
                         value={form.precio_distribuidor}
                         onChange={handleChange}
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div className="row d-flex justify-content-center">
+                  <div className="col-lg-4 col-md-4 col-sm-12 d-flex justify-content-center">
+                    <div className="mb-3">
+                      <label className="form-label">Stock</label>
+                      <input
+                        type="number"
+                        className="form-control"
+                        style={{ maxWidth: "200px" }}
+                        name="stock"
+                        value={form.stock}
+                        onChange={handleChange}
+                        min={1}
                         required
                       />
                     </div>
@@ -165,9 +237,8 @@ export const InsertProducts = () => {
         </div>
       </div>
       <footer>
-          <Footer/>
+        <Footer />
       </footer>
-
     </div>
   );
 };
