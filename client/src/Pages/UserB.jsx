@@ -1,5 +1,5 @@
 export const UserB = () => <h1>UserB</h1>
-//Crear pàgina para Empleado, que pràcticamente lo redirijìa a un home distinto y opciòn para insertar productos
+//Crear página para Empleado, que pràcticamente lo redirijìa a un home distinto y opciòn para insertar productos
 /* import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';

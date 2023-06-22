@@ -102,4 +102,5 @@ router.post('/Stock/', createStock)
 router.put('/Stock/:id', updateStock)
 router.delete("/Stock/:id", deleteStock)
 
+
 export default router
