@@ -4,6 +4,7 @@ import { values } from "lodash";
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { async } from "rxjs";
+import nodemailer from "nodemailer";
 //import { string } from "yargs";
 const urlWithProxy = "/api/user/User/";
 const urlWithProxy_Secion = "/api/user/";
@@ -84,6 +85,7 @@ try{
       });
 
       alert(JSON.stringify(res.data));
+      enviarCorreoElectronico();
 
       window.location.href = "http://localhost:5173/Login";
 
@@ -107,3 +109,32 @@ try{
     handleSubmit,
   };
 };
+
+async function enviarCorreoElectronico() {
+    alert("enviando correo");
+
+    
+    try {
+      const transporter = nodemailer.createTransport({
+        host: 'smtp.gmail.com',
+        port: 465,
+        secure: true, 
+        auth: {
+          user: 'garcia.velazquez.jesus.01@gmail.com',
+          pass: 'psgkgrstselvtqou'
+        }
+      });
+  
+      const mensaje = {
+        from: 'garcia.velazquez.jesus.01@gmail.com',
+        to: 'chuy.garcia.velazquez@gmail.com',
+        subject: 'Compra exitosa',
+        text: '¡Gracias por tu compra!'
+      };
+  
+      const info = await transporter.sendMail(mensaje);
+      console.log('Correo enviado con éxito:', info.messageId);
+    } catch (error) {
+      console.log('Error al enviar el correo:', error);
+    }
+  }

@@ -10,6 +10,7 @@ import {Admin} from '../Pages/Admin';
 import {InsertProducts} from '../Pages/InsertProducts';
 import CompCreateUser from '../Components/createUser';
 import CompCreateCompny from '../Components/crearEmpresa';
+import {DataCompra} from '../Pages/DataCompra';
 //import {CompCreateUser} from '../Components/createUser.jsx';
 //import {Prueba} from '../Pages/Prueba';
 function App() {
@@ -30,6 +31,7 @@ function App() {
       <Route path='/Admin/create' element={<CompCreateUser/>}/>
       <Route path='/Admin/create/Company' element={<CompCreateCompny/>}/>
       <Route path='/Admin/InfoP' element={<Infop/>}/>
+      <Route path='/Admin/DataCompra' element={<DataCompra/>}/>
       
       <Route path='/Admin/home'/>
 

@@ -3,6 +3,7 @@ import '../css/Home.css'
 import Navbar from '../Components/Navbar'
 import Footer from '../Components/Footer'
 import Productos from '../Components/Productos'
+import { Link } from "react-router-dom";
 
 export const UserC = () => 
 
@@ -10,6 +11,7 @@ export const UserC = () =>
     
     <header>
         <Navbar/>
+        <Link to="http://localhost:5000/logout" className="btn btn-warning mt-2 mb-2">Cerrar Sesión</Link>
     </header>
     <div className="App">
         <div className='carr'>

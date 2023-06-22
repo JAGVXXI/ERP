@@ -28,6 +28,8 @@ function getParameterByName(name) {
     return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 }
 
+
+
 var prodId = getParameterByName('prodId');
 
 
@@ -46,8 +48,12 @@ var prodId = getParameterByName('prodId');
         } catch (error) {
           console.log(error);
         }
-      };
+    };
 
+    function comprar(){
+        
+        window.location.href = `http://localhost:5173/Admin/DataCompra?prodId=${prodId}`;
+    }
 
 return(
 
@@ -59,6 +65,8 @@ return(
     <header>
         <Navbar/>
     </header>
+
+
     <div className="container py-5">
         <p>{prodId}</p>
         <p>{product.name}</p>
@@ -71,21 +79,12 @@ return(
         <p>Categoria:  {product.category}</p>
         <p>Precio: ${product.price_public}</p>
 
+        <button onClick={comprar} >COMPRAR</button>
+
 
         
     </div>
-    <div className='InfoCompra'>
-        <div className='container'>
-            <form action="">
-            <label for="fp">Forma de pago</label><br/>
-                <input type="text" name="" id="" className="form-control fp" placeholder="Escribe la forma de pago"  />
-                <input type="submit" className="btn btn-success"  name="" id="" value="Comprar" />
-            </form>
 
-        </div>
-    
-
-    </div>
        
 
     <footer>
